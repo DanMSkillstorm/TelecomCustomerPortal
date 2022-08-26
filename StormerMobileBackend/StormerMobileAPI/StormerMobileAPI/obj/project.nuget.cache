@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "vEFR67v+IOMoWS8V8aZ/NZbJW6GzrqH2Xwu1U2D55YWgR7LLsSFOSD9X2Nf8qfkNFOWjvRkEwa4nIQpmXjq8dA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dan\\Documents\\GitHub\\TelecomCustomerPortal\\StormerMobileBackend\\StormerMobileAPI\\StormerMobileAPI\\StormerMobileAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dan\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Dan\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Dan\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Dan\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Dan\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Dan\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
