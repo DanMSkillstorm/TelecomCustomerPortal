@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "TEdiWnBpiZLZThtsZUca4mJ9uCecqp1pHEgnuxSgGfs=",
+  "Source": "StormerMobileAPI",
+  "BasePath": "_content/StormerMobileAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
