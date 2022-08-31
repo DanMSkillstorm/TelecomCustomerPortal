@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using StormerMobileAPI.Context;
+//using StormerMobileAPI.Context;
 using StormerMobileAPI.Models;
+using StormerMobileAPI.Services;
 
 namespace StormerMobileAPI.Controllers
 {
@@ -14,33 +15,23 @@ namespace StormerMobileAPI.Controllers
     [ApiController]
     public class AccountsController : ControllerBase
     {
-        private readonly AccountContext _context;
+        private readonly ICosmosDbService _context;
 
-        public AccountsController(AccountContext context)
+        public AccountsController(ICosmosDbService context)
         {
             _context = context;
         }
 
-        // GET: api/Accounts
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Account>>> GetAccounts()
-        {
-          if (_context.Accounts == null)
-          {
-              return NotFound();
-          }
-            return await _context.Accounts.ToListAsync();
-        }
 
         // GET: api/Accounts/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Account>> GetAccount(int id)
+        [HttpGet("{username}")]
+        public async Task<ActionResult<Account>> GetAccount(string username)
         {
-          if (_context.Accounts == null)
-          {
-              return NotFound();
-          }
-            var account = await _context.Accounts.FindAsync(id);
+            //if (_context.Accounts == null)
+            //{
+            //    return NotFound();
+            //}
+            var account = await _context.GetAccountAsync(username);
 
             if (account == null)
             {
@@ -52,31 +43,10 @@ namespace StormerMobileAPI.Controllers
 
         // PUT: api/Accounts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAccount(int id, Account account)
+        [HttpPut("{username}")]
+        public async Task<IActionResult> PutAccount(string username, AccountDTO accountDTO)
         {
-            if (id != account.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(account).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AccountExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.UpdateAccountAsync(username, accountDTO);
 
             return NoContent();
         }
@@ -84,55 +54,27 @@ namespace StormerMobileAPI.Controllers
         // POST: api/Accounts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Account>> PostAccount(Account account)
+        public async Task<ActionResult<AccountDTO>> PostAccount(AccountDTO accountDTO)
         {
-          if (_context.Accounts == null)
-          {
-              return Problem("Entity set 'AccountContext.Accounts'  is null.");
-          }
-            _context.Accounts.Add(account);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (AccountExists(account.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return CreatedAtAction("GetAccount", new { id = account.Id }, account);
+            await _context.AddAccountAsync(accountDTO);
+
+            return NoContent();
         }
 
         // DELETE: api/Accounts/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAccount(int id)
+        [HttpDelete("{username}")]
+        public async Task<IActionResult> DeleteAccount(string username)
         {
-            if (_context.Accounts == null)
-            {
-                return NotFound();
-            }
-            var account = await _context.Accounts.FindAsync(id);
+            var account = await _context.GetAccountAsync(username);
             if (account == null)
             {
                 return NotFound();
             }
 
-            _context.Accounts.Remove(account);
-            await _context.SaveChangesAsync();
+            await _context.DeleteAccountAsync(username);
 
             return NoContent();
-        }
-
-        private bool AccountExists(int id)
-        {
-            return (_context.Accounts?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
