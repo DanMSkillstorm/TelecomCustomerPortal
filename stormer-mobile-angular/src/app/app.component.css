@@ -1,22 +1,11 @@
-*{
-    font-family: 'Doctor Soos Bold', sans-serif;
-    font-size: 30px;                                               
+mat-toolbar{
+  color: #FF9800;
 }
 
-header{
-    background-color: orange;
-}
-
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+.toolbar-spacer {
+    flex: 1 1 auto;
   }
 
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
+  a.title {
+    color: white;
   }
