@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const WebAPI_ENDPOINT = 'https://agreeable-moss-04fe0e00f.1.azurestaticapps.net/v1.0/me';
+const WebAPI_ENDPOINT = 'https://graph.microsoft.com/v1/0/me';
 
 //need to check schema
 type AccountType = {
@@ -33,4 +33,6 @@ export class AccountComponent implements OnInit {
         this.account = account;
       });
   }
+
+  //update Account
 }
