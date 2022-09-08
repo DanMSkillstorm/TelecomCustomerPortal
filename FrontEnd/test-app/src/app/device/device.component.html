@@ -1,0 +1,58 @@
+<body>
+    <div class="container">
+<h2 class="display-6 text-center my-5">Add Fish</h2>
+    
+        <div class="row">
+            <div class="col">
+                <div class="card rounded-3 shadow-sm" style="width: 14rem; height: 10px;">
+                    <img src="./assets/img/redPhone.jpg" alt="Red Fish">
+                    <div class="card-header">
+                        Red Fish
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$40<small class="text-muted fw-light">/mo</small>
+                        </h1> <div class = "col">
+                            <label>Add a name!</label>
+                            <input type=text id="device_name1" name="device_name1" #device_name1>
+                          </div>
+                        <button type="button" (click)="addDevice(1, device_name1.value)" class="btn btn-warning my-2">Add Blue Fish</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card rounded-3 shadow-sm" style="width: 14rem; height: 10px;">
+                    <img src="./assets/img/bluePhone.jpg" alt="Blue Fish">
+                    <div class="card-header">
+                        Blue Fish
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$40<small class="text-muted fw-light">/mo</small>
+                        </h1>
+                        <div class = "col">
+                        <label>Add a name!</label>
+                        <input type=text id="device_name2" name="device_name2" #device_name2>
+                        </div>
+                        <button type="button" (click)="addDevice(2, device_name2.value)" class="btn btn-warning my-2">Add Blue Fish</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card rounded-3 shadow-sm" style="width: 14rem; height: 10px;">
+                    <img src="./assets/img/greenPhones.png" alt="Green Fish">
+                    <div class="card-header">
+                        Green Fish
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$40<small class="text-muted fw-light">/mo</small>
+                        </h1>
+                        <div class = "col">
+                            <label>Add a name!</label>
+                            <input type=text id="device_name3" name="device_name3" #device_name3>
+                        </div>
+                        <button type="button" (click)="addDevice(3, device_name3.value)" class="btn btn-warning my-2">Add Green Fish</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+</body>

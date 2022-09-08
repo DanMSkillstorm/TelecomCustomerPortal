@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Account Info</h3>
+        </div>
+        <div>
+        <!-- <div class="card-body" *ngFor="let account of accounts"> -->
+            <!-- <p><strong>Account Number: </strong> {{account.id}}</p> -->
+        </div>
+        <h1>Billing</h1>
+            <h2>Plans</h2>
+        <table class="table table-bordered table-striped">
+           <thead>
+            <tr>
+            <th>Plan Type</th>
+            <th>Plan Id</th>
+            <th>Price</th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr *ngFor="let plan of plans">
+              <td>{{plan.name}}</td>
+              <th>{{plan.id}}</th>
+              <td>{{plan.price}}</td>
+              <td> 
+                <button class="btn btn-danger btn-sm" (click)="deletePlan(plan.id!)">Delete</button>
+              </td>
+              <!-- <td>{{device.name}}</td>-->
+            </tr>
+           
+           </tbody>
+           <div class = "border border-warning rounded">
+              <h1 class = "d-flex justify-content-center align-self-center">Total Bill: {{getBill(plans)}}</h1>
+           </div>
+           
+        </table>
+        <h2>Devices</h2>
+        <table class="table table-bordered table-striped">
+          <thead>
+           <tr>
+           <th>Device Name</th>
+           <th>Plan</th>
+           <th>Phone Number</th>
+           <th>Assign To Plan?</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr *ngFor="let device of devices">
+             <td>{{device.name}}</td>
+             <td>{{device.planId}}</td>
+             <td>{{device.phoneNumber}}</td>
+             <td>
+              <mat-form-field appearance="fill" name = "selectedPlan" ngDefaultControl [(ngModel)]="selectedPlan">
+                <select >
+                  <option>None</option>
+                  <option *ngFor="let availPlan of availPlans" [value]="availPlan.id">{{[availPlan.id]}}</option>
+                </select>
+                <button class="btn btn-warning btn-sm" (click)="assignDeviceToPlan(device.id, selectedPlan)">Assign</button>
+              </mat-form-field>
+            </td>
+             <td> 
+               <button class="btn btn-danger btn-sm" (click)="deleteDevice(device.id!)">Delete</button>
+             </td>
+             <!-- <td>{{device.name}}</td>-->
+           </tr>
+          </tbody>
+       </table>
+       <div class = "container">
+        <h3>Switch Phone Numbers for Devices</h3>
+        <div class = "row">
+          <div class = "col">
+            <label>First Device</label>
+            <input type=text id="device1" name="device1" #device1>
+          </div>
+          <div class = "col">
+            <label>Second Device</label>
+            <input type=text id="device2" name="device2" #device2>
+          </div>
+          <div class = "col">
+            <button class="btn btn-sm btn-primary" (click)="swapDeviceNumbers(device1.value, device2.value)">Switch</button>
+          </div>
+        </div>
+       </div>
+    </div>
+
+   
+</div>

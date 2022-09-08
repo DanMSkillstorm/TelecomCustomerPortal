@@ -1,0 +1,14 @@
+*{
+    font-family: 'Doctor Soos Bold';
+    font-size: 25px;                                               
+}
+
+html, body { 
+    height: 100%; 
+}
+
+.container { 
+    margin: 1%; 
+}
+
+html, body { height: 100%; }
